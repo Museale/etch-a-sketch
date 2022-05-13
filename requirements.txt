@@ -1,0 +1,18 @@
+[x] It should have a square 16x16 grid
+
+[x] It should have a wipe button
+
+[] It should draw when your mouse is pressed until mouseup.
+
+[] It should have an eraser
+
+[] It should have a colour picker
+
+[] It should have a value picker that decides how many squares, up to at least 60x60 
+  - The container should stay the same size
+
+[] It should have a "save creation" button
+  - This should save image file to your computer.
+
+[] It should have a randomized color brush
+
