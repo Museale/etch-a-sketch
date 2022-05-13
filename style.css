@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#container {
+    display: grid;
+    background: rgba(166, 197, 221, 0.767);
+    border: rgb(206, 161, 198) solid 7px;
+    width: 600px;
+    height: 600px;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+
+}
+
+.cell {
+    border: 1px dashed rgb(184, 152, 152);
+}
+
+.cell:hover {
+    background-color: rgb(121, 166, 207)
+}
+
+
+/* #container > .cell:nth-child(odd) {
+    background: rgba(209, 217, 243, 0.507);
+} */
+/* 
