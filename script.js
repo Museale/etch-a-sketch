@@ -10,6 +10,7 @@ const options = document.getElementById('options');
 // };
  
 function createGrid (number) {
+	gridRemover();
 	for (let i = 0; i < (number * number); i++) {
 		const cell = document.createElement('div');
 			cell.classList.add('cell');
@@ -18,25 +19,28 @@ function createGrid (number) {
 				cell.classList.add('draw')
 			});
 			console.log(cell)
+	
+	};
 
-	// const cellRemover = document.querySelectorAll('.cell');
-	// 		document.getElementById('range').addEventListener('change', () => {
-	// 			cellRemover.forEach(element => {
-	// 				container.removeChild(element);
-	// 			});
-			
-	// 		});
-
-		};
 };
 
+function gridRemover () {
+
+	const cellRemover = document.querySelectorAll('.cell');
+		if (container.hasChildNodes()) {
+			Array.from(cellRemover); 
+			cellRemover.forEach(element => {
+				container.removeChild(element);
+			});
+		};
+}
 
 let gridSize = document.getElementById('range');
-	gridSize.addEventListener('change', (e) => {
+		gridSize.addEventListener('change', (e) => {
 		container.style.setProperty('--grid-column-count', e.target.value);
 		container.style.setProperty('--grid-row-count', e.target.value); 
 		createGrid(gridSize.value);
-	});
+});
 
 
 let output = document.getElementById('value');
