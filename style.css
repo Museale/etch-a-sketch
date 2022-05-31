@@ -15,12 +15,14 @@ html {
     border: rgb(206, 161, 198) solid 7px;
     width: 666px;
     height: 666px;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    margin:auto;
-    margin-top: 6em;
-
-}
+    --grid-column-count: 16;
+    --grid-row-count: 0;
+    grid-template-columns: repeat(var(--grid-column-count), 1fr);
+    grid-template-rows: repeat(var(--grid-row-count), 1fr);
+    margin: auto;
+    margin-top: 4em;
+    border-radius: 6px;
+    }
 
 .cell {
     border: 1px dashed rgb(184, 152, 152);
@@ -31,17 +33,13 @@ html {
 }
 
 .draw {
-    background-color:rgb(206, 161, 198);
+    background-color:rgb(88, 129, 127);
 }
-
 
 #options {
     display: grid;
     width: 666px;
     margin: auto;
-
-
-
 }
 
 .reload {
