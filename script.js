@@ -37,6 +37,8 @@ function createSketchPad (number) {
 		};
 
 		function pointerOver () {
+			//Have to find a way to switch between monocolour function and randomcolour function on button click. 
+			//The pen should draw in randomcolour when clicked the first time, and switch back to monocolour when clicked again.
 
 			monoColour();
 
