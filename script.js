@@ -2,7 +2,10 @@ const container = document.getElementById('container');
 
 const options = document.getElementById('options');
 
-function createGrid (number) {
+
+//Creates a grid in the specified value, adds event listeners to each cell created and container
+
+function createSketchPad (number) {
 
 	gridRemover();
 
@@ -10,37 +13,52 @@ function createGrid (number) {
 		const cell = document.createElement('div');
 			cell.classList.add('cell');
 			container.appendChild(cell);
-	
+
 				container.addEventListener('pointerdown', () => {
-					cell.onpointerover = () => { 
-						cell.style.background = 'pink';
-						cell.classList.add('draw');
-					};
-					cell.onclick = () => {
-						cell.style.background = 'white';
-						cell.classList.add('draw');
-					}
+					cell.onpointerover = () => pointerOver();
 				});	
-				container.addEventListener('pointerup', () => {
-					cell.onpointerover = () => {
-					if (cell.classList.contains('draw') !== true) {
-						cell.style.background = 'none';
-					}
-					};
-				});
 
-				container.addEventListener('dblclick', (e) => {
-					cell.style.cursor = 'pointer';
-					cell.onpointerover = () => {
-					if (cell.classList.contains('draw') !== false) {
-						cell.style.background = 'none';
-					}
+					document.body.addEventListener('pointerup', () => {
+						cell.onpointerover = () => pointerUp();
+					});
+
+						container.addEventListener('dblclick', () => {
+							cell.onpointerover = () => eraseOnDblClick();
+						});
+			
+		function monoColour () {
+			cell.style.background = 'pink';
+			cell.classList.add('draw');
+		};
+
+		function randomColourOnClick () {
+			const randomColour = () => `hsla(${Math.random() * 390}, 80%, 78%, 1)`;
+			cell.style.background = `${randomColour()}`;
+		};
+
+		function pointerOver () {
+
+			monoColour();
+
+			randomColourOnClick();
+			
+		};
+
+		function pointerUp () {
+			if (cell.classList.contains('draw') !== true) {
+				cell.style.background = 'none';
+			};
+		};
+
+		function eraseOnDblClick () {
+			if (cell.classList.contains('draw') !== false) {
+				cell.style.background = 'none';
 				}
-				})
-		
-	}
+			};
+	 }
 };
-
+		
+//Checks if container has child nodes, and deletes them
 function gridRemover () {
 
 	const cellRemover = document.querySelectorAll('.cell');
@@ -51,73 +69,46 @@ function gridRemover () {
 			});
 		};
 }
-
+//Calculates the size of the grid and transfers value to CSS
 	let gridSize = document.getElementById('range');
 		gridSize.addEventListener('change', (e) => {
 		container.style.setProperty('--grid-column-count', e.target.value);
 		container.style.setProperty('--grid-row-count', e.target.value); 
-		createGrid(gridSize.value);
+		createSketchPad(gridSize.value);
 	});
 
-
+//Outputs value
 	let output = document.getElementById('value');
 		output.textContent = gridSize.value;
 		gridSize.oninput = function() {
 		output.textContent = this.value;
 	};
-
+//Reloads page
 	const reloadBtn = document.createElement('button');
 		reloadBtn.textContent = "Wipe Board";
-		reloadBtn.classList.add('reload');
+		reloadBtn.classList.add('joyStick');
+		reloadBtn.classList.add('rightStick');
 		reloadBtn.addEventListener('click', () => {
 			window.location.reload();
 		});
+//Random colour btn
+	const chooseRandomColour = document.createElement('button');
+		chooseRandomColour.textContent = 'Colour';
+		chooseRandomColour.classList.add('joyStick');
+		chooseRandomColour.classList.add('leftStick');
 
-		options.appendChild(reloadBtn);
-
-
-
-		// const colourCanvas = document.createElement('canvas');
-		// const colourCtx = colourCanvas .getContext('2d');
-
-		// options.appendChild(colourCanvas);
-
-
-		// let colour = 'rgba(0,0,255,1)';
-
-		// let gradientH = colourCtx .createLinearGradient(0, 0, colourCtx .canvas.width, 0);
-		// gradientH.addColorStop(0, '#fff');
-		// gradientH.addColorStop(1, colour);
-		// colourCtx .fillStyle = gradientH;
-		// colourCtx .fillRect(0, 0, colourCtx .canvas.width, colourCtx .canvas.height);
-
-		// let gradientV = colourCtx .createLinearGradient(0, 0, 0, 300);
-		// gradientV.addColorStop(0, 'rgba(0,0,0,0)');
-		// gradientV.addColorStop(1, '#000');
-		// colourCtx .fillStyle = gradientV;
-		// colourCtx .fillRect(0, 0, colourCtx .canvas.width, colourCtx .canvas.height);
+	// const monoColour = document.createElement('button');
+	// 	monoColour.textContent = 'Mono';
+	// 	monoColour.classList.add('joyStick');
+	// 	monoColour.classList.add('leftStick');
+	// 	monoColour.style.visibility = 'hidden';
+	// 	monoColour.style.position = 'absolute';
 
 
-		// colourCanvas.addEventListener('click', e => {
-		// 	let x = e.clientX;
-		// 	let y = e.clientY;
-		// 	 pixel = colourCtx.getImageData(x,y,1,1)['data'];
-		// 	 rgb = `rgb(${pixel[0]},${pixel[1]},${pixel[2]})`;
-		// 	console.log(rgb);
-		// 	console.log(pixel);
-		// 	container.style.background = rgb;
-		// })
-
-
-		// colourCanvas.classList.add('colourCanvas');
-
-
+	boardOptions.appendChild(reloadBtn);
+	boardOptions.appendChild(chooseRandomColour);
+	// boardOptions.appendChild(monoColour);
+	
 		
-
-
-
-
-
-
-createGrid(gridSize.value);
+createSketchPad(gridSize.value);
 
