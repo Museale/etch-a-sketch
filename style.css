@@ -88,11 +88,8 @@ body {
     font-weight: bold;
     font-style: normal;
     text-shadow: 2px 2px 3px rgb(153, 113, 146);
+    
 }
-
-/* .rightStick {
-    border-bottom-left-radius: 24px;
-} */
 
 .joyStick:hover {
     cursor: pointer;
@@ -147,4 +144,8 @@ body {
     font-weight: normal;
     font-style: normal;
     text-shadow: 1px 1px 1px rgb(153, 113, 146);
+}
+
+.eraser {
+    cursor: pointer;
 }

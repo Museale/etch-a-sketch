@@ -2,6 +2,7 @@ const container = document.getElementById('container');
 
 const options = document.getElementById('options');
 
+let colourBtn = 0;
 
 //Creates a grid in the specified value, adds event listeners to each cell created and container
 
@@ -12,10 +13,14 @@ function createSketchPad (number) {
 	for (let i = 0; i < (number * number); i++) {
 		const cell = document.createElement('div');
 			cell.classList.add('cell');
+			
 			container.appendChild(cell);
 
-				container.addEventListener('pointerdown', () => {
+				container.addEventListener('pointerdown', (e) => {
+					container.classList.remove('eraser');
 					cell.onpointerover = () => pointerOver();
+					cell.onclick =() => pointerOver();
+					e.preventDefault();
 				});	
 
 					document.body.addEventListener('pointerup', () => {
@@ -27,23 +32,28 @@ function createSketchPad (number) {
 						});
 			
 		function monoColour () {
-			cell.style.background = 'pink';
+			cell.style.background = 'black';
 			cell.classList.add('draw');
+			
 		};
 
 		function randomColourOnClick () {
+		
 			const randomColour = () => `hsla(${Math.random() * 390}, 80%, 78%, 1)`;
 			cell.style.background = `${randomColour()}`;
+			cell.classList.add('draw');
+	
+
 		};
 
 		function pointerOver () {
-			//Have to find a way to switch between monocolour function and randomcolour function on button click. 
-			//The pen should draw in randomcolour when clicked the first time, and switch back to monocolour when clicked again.
-
-			monoColour();
-
-			randomColourOnClick();
-			
+		
+			switch (colourBtn) {
+				case 0: monoColour();
+				break;
+				case 1: randomColourOnClick();
+				break;
+			};
 		};
 
 		function pointerUp () {
@@ -53,6 +63,7 @@ function createSketchPad (number) {
 		};
 
 		function eraseOnDblClick () {
+			container.classList.add('eraser');
 			if (cell.classList.contains('draw') !== false) {
 				cell.style.background = 'none';
 				}
@@ -94,21 +105,30 @@ function gridRemover () {
 			window.location.reload();
 		});
 //Random colour btn
-	const chooseRandomColour = document.createElement('button');
+	
+
+
+		const chooseRandomColour = document.createElement('button');
 		chooseRandomColour.textContent = 'Colour';
 		chooseRandomColour.classList.add('joyStick');
 		chooseRandomColour.classList.add('leftStick');
 
-	// const monoColour = document.createElement('button');
-	// 	monoColour.textContent = 'Mono';
-	// 	monoColour.classList.add('joyStick');
-	// 	monoColour.classList.add('leftStick');
-	// 	monoColour.style.visibility = 'hidden';
-	// 	monoColour.style.position = 'absolute';
+		chooseRandomColour.addEventListener('click', e => {
+			console.log(e.target);
+			if (colourBtn === 0) {
+				++colourBtn;
+				chooseRandomColour.textContent = 'Mono';
+			} else if (colourBtn === 1) {
+					--colourBtn;
+					chooseRandomColour.textContent = 'Colour';
+					}
+				});
+	
 
 
 	boardOptions.appendChild(reloadBtn);
 	boardOptions.appendChild(chooseRandomColour);
+
 	// boardOptions.appendChild(monoColour);
 	
 		
