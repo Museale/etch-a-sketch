@@ -32,7 +32,7 @@ function createSketchPad (number) {
 						});
 			
 		function monoColour () {
-			cell.style.background = 'black';
+			cell.style.background = 'rgb(72, 89, 117)';
 			cell.classList.add('draw');
 			
 		};
