@@ -4,7 +4,7 @@ const options = document.getElementById('options');
 
 let colourBtn = 0;
 
-//Creates a grid in the specified value, adds event listeners to each cell created and container
+//Creates a grid in the specified value, adds event listeners container and to each cell created
 
 function createSketchPad (number) {
 
@@ -90,13 +90,13 @@ function gridRemover () {
 		createSketchPad(gridSize.value);
 	});
 
-//Outputs value
+
 	let output = document.getElementById('value');
 		output.textContent = gridSize.value;
 		gridSize.oninput = function() {
 		output.textContent = this.value;
 	};
-//Reloads page
+
 	const reloadBtn = document.createElement('button');
 		reloadBtn.textContent = "Wipe Board";
 		reloadBtn.classList.add('joyStick');
@@ -104,8 +104,6 @@ function gridRemover () {
 		reloadBtn.addEventListener('click', () => {
 			window.location.reload();
 		});
-//Random colour btn
-	
 
 
 		const chooseRandomColour = document.createElement('button');
@@ -128,9 +126,6 @@ function gridRemover () {
 
 	boardOptions.appendChild(reloadBtn);
 	boardOptions.appendChild(chooseRandomColour);
-
-	// boardOptions.appendChild(monoColour);
-	
 		
 createSketchPad(gridSize.value);
 
