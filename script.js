@@ -36,8 +36,6 @@ function createSketchPad (number) {
 				};
 		
 				function eraseOnDblClick () {
-					container.classList.remove('drawingActive');
-					container.classList.add('eraser');
 					if (cell.classList.contains('draw') !== false) {
 						cell.style.background = 'none';
 						}
@@ -56,6 +54,8 @@ function createSketchPad (number) {
 					});
 		
 				container.addEventListener('dblclick', () => {
+					container.classList.remove('drawingActive');
+					container.classList.add('eraser');
 					cell.onpointerover = () => eraseOnDblClick();
 					});
 	};

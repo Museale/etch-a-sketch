@@ -154,7 +154,7 @@ body {
 }
 
 .eraser {
-    cursor: URL('eraser-bear.png'), pointer;
+    cursor: URL('eraser-bear-1.png'), pointer;
 }
 
 
@@ -162,6 +162,7 @@ body {
     margin: 0;
     padding: 4em;
     padding-top: 1em;
+    padding-bottom: 1em;
     position: fixed;
     top: 38.4%;
     left: 49.3%;
