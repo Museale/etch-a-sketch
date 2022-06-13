@@ -7,7 +7,7 @@
 }
 
 html {
-    background-color: rgb(143, 142, 201);
+    background-color: #15b1b1;
  
 }
 
@@ -18,44 +18,45 @@ body {
 
 #main {
     display: grid;
-    width : 900px;
+    width : 1000px;
+    height: 1000px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
-    padding: 3em;
+    padding: 4em;
     border-radius: 80px;
-    border-right: solid 24px rgb(206, 161, 198);
-    border-bottom: solid 20px rgb(194, 152, 186);
-    border-left: 7px solid rgb(199, 152, 190);
-    border-top: 7px solid rgb(206, 161, 198);
+    border-right: solid 24px rgb(92, 172, 172);
+    border-bottom: solid 20px  rgb(98, 182, 182);
+    border-left: 7px solid rgb(112, 207, 207);
+    border-top: 7px solid  rgb(98, 182, 182);
     border-end-start-radius: 98px;
     border-top-left-radius: 98px;
-    background-color: rgb(222, 199, 223);
-    box-shadow: 23px 20px 15px 5px rgb(153, 113, 146);
+    background-color: rgb(107, 197, 197);
+    box-shadow: 23px 20px 15px 5px rgb(23, 109, 95);
 
 }
 
 #container {
     display: grid;
-    background: rgba(155, 194, 224, 0.767);
-    border: rgb(206, 161, 198) solid 7px;
-    width: 666px;
-    height: 666px;
+    background: rgba(177, 232, 240, 0.767);
+    border: rgb(87, 163, 163) solid 7px;
+    width: 766px;
+    height: 766px;
     --grid-column-count: 16;
     --grid-row-count: 0;
     grid-template-columns: repeat(var(--grid-column-count), 1fr);
     grid-template-rows: repeat(var(--grid-row-count), 1fr);
-    margin: auto;
+    margin-left: auto;
     margin-top: 1em;
     border-radius: 9px;
-    border-right: solid 5px rgb(212, 167, 204);
-    border-bottom: solid 5px rgb(207, 162, 199);
+    border-right: solid 5px rgb(98, 182, 182);
+    border-bottom: solid 5px rgb(98, 182, 182);
     
 }
 
 .cell {
-    border: 1px dashed rgb(184, 152, 152);
+    border: 1px dashed rgba(152, 184, 179, 0.418);
 }
 
 .cell:hover {
@@ -75,34 +76,32 @@ body {
 #boardOptions{
     display: flex;
     flex-direction: row;
-    gap: 6em;
+    gap: 3em;
 }
 
-.joyStick {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 130px;
-    height: 130px;
-    margin-top: 1em;
-    background-color: #2583a8;
-    border: 4px solid rgb(42, 248, 180);
-    border-radius: 100px;
-    color: rgb(221, 140, 206);
-    font-size: 1.8em;
-    box-shadow: 3px 3px 9px rgb(153, 113, 146);
-    font-family: 'Keypunch029Regular';
-    font-weight: bold;
-    font-style: normal;
-    text-shadow: 2px 2px 3px rgb(10, 19, 16);
-    
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+    background: none;
+    margin-top: 6em;
+    margin-left: 20px;
+    width: 90px;
+    height: 90px;
 }
 
-.joyStick:hover {
-    cursor: pointer;
-    color: rgb(231, 202, 227);
-    box-shadow: 2px 2px 10px rgb(42, 248, 180);
-    margin-top: 28px;
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+    overflow: hidden;
+    background: none;
+
+
+}
+
+input[type="color"]::-webkit-color-swatch {
+    background: none;
+    border: 3px solid rgb(82, 172, 160);
+    border-radius: 10%;
 }
 
 #rangeOptions {
@@ -118,16 +117,16 @@ body {
     -webkit-appearance: none;
     width: 566px;
     height: 38px;
-    background: rgba(155, 194, 224, 0.767);
+    background: rgba(177, 232, 240, 0.767);
     border-radius: 50px;
-    border: 2px solid rgb(121, 166, 207);
+    border: 2px solid  rgb(98, 182, 182);
     padding: 5px;
     box-shadow: 2px 3px 5px rgb(153, 113, 146);
 }
 
 #range::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: rgba(4, 75, 85, 0.767);
+    background:  rgb(166, 183, 241);
     height: 25px;
     width: 25px;
     border-radius: 70px;
@@ -138,15 +137,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgba(29, 158, 175, 0.767);
+    color:   rgb(85, 109, 189);
     font-size: 24px;
     margin-left: 10px;
     width: 38px;
     height: 38px;
-    border: 2px solid rgb(121, 166, 207);;
+    border: 2px solid rgb(98, 182, 182);
     border-radius: 5px;
     box-shadow: 2px 3px 5px rgb(153, 113, 146);
-    background-color: rgba(155, 194, 224, 0.767);
+    background-color:rgba(177, 232, 240, 0.767);
     font-family: 'Android7Regular';
     font-weight: normal;
     font-style: normal;
@@ -245,59 +244,66 @@ body {
 }
    
 
+#bg-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    position: absolute;
+}
+
+.background-colour{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px rgb(104, 218, 202);
+    margin-top: 45px;
+    margin-left: 18px;
+    padding: 1em;
+    background-color: rgb(85, 109, 189);
+    border-radius: 60%;
+    width: 110px;
+    height: 90px;
+    box-shadow: 2px 2px 2px rgb(153, 113, 146);
+    text-shadow: 1px 2px 2px rgb(45, 6, 95);
+    font-family: 'Keypunch029Regular';
+    font-weight: bold;
+    font-size: 20px;
+    color: #A6B7F1;
+}
+
+
+.background-colour:hover {
+    margin-left: 16px;
+    box-shadow: -3px -2px 2px rgba(88, 50, 88, 0.404);
+}
+
 @media screen and (max-width: 1200px) {
     body{
         overflow: hidden;
     }
-}
-@media screen and (max-width: 600px) {
-    body {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100vw;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        margin-top: 5vh;
-    }
-
     #main {
-        display: flex;
+        width: 800px;
+        height: 900px;
+        margin: auto;
+
+    
+    }
+    #bg-options {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        margin: 0;
-        padding: 0;
-        max-width: 98%;
-        padding-top: 5vh;
-        padding-bottom: 8vh;
+        justify-content: flex-end;
+         margin-top: 40px;
+         padding: 0;
+       
     }
-
     #container {
-        width : 300px;
-        height: 300px;
+        width: 600px;
+        height: 600px;
+        margin-left: auto;
+      
     }
+     
 
-    #rangeOptions{
-        width: 80vw;
-    }
-    #boardOptions {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        flex-wrap: wrap;
-        width: 70vw;
-    }
-    .joyStick {
-        width: 80px;
-        height: 80px;
-        font-size: smaller;
-    }
-   
-    .joyStick:hover {
-        margin-top: 1em;
-    }
 }
 

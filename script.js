@@ -1,6 +1,12 @@
 const container = document.getElementById('container');
 
+const main = document.getElementById('main');
+
 const options = document.getElementById('options');
+
+const backgroundOptions = document.getElementById('bg-options');
+
+	main.appendChild(backgroundOptions);
 
 let colourBtnValue = 0;
 
@@ -16,7 +22,8 @@ function createSketchPad (number) {
 			container.appendChild(cell);
 					
 				function monoColour () {
-					cell.style.background = 'rgb(72, 89, 117)';
+					cell.style.background = document.getElementById('colour-wheel').value;
+					cell.style.background = `${colourWheel}`;
 				};
 		
 				function randomColourOnClick () {
@@ -89,17 +96,15 @@ function gridRemover () {
 
 	const reloadBtn = document.createElement('button');
 		reloadBtn.textContent = "Wipe Board";
-		reloadBtn.classList.add('joyStick');
-		reloadBtn.classList.add('leftStick');
+		reloadBtn.classList.add('background-colour');
 		reloadBtn.addEventListener('click', () => {
 			window.location.reload();
 		});
 
 
 	const pickColourBtn = document.createElement('button');
-		pickColourBtn.textContent = 'Colour';
-		pickColourBtn.classList.add('joyStick');
-		pickColourBtn.classList.add('middleStick');
+		pickColourBtn.textContent = 'RGB';
+		pickColourBtn.classList.add('background-colour');
 
 		pickColourBtn.addEventListener('click', () => {
 			if (colourBtnValue === 0) {
@@ -107,14 +112,13 @@ function gridRemover () {
 				pickColourBtn.textContent = 'Mono';
 			} else if (colourBtnValue === 1) {
 				--colourBtnValue;
-				pickColourBtn.textContent = 'Colour';
+				pickColourBtn.textContent = 'RGB';
 			}
 		});
 	
 	const guideModal = document.createElement('button');
 		guideModal.textContent ='guide';
-		guideModal.classList.add('joyStick');
-		guideModal.classList.add('rightStick');
+		guideModal.classList.add('background-colour')
 		guideModal.addEventListener('click', () => {
 			document.getElementById('pop-up-box').classList.add('active');
 			document.getElementById('overlay').classList.add('active');
@@ -126,9 +130,28 @@ function gridRemover () {
 		document.getElementById('overlay').classList.remove('active');
 	});
 
-	boardOptions.appendChild(reloadBtn);
-	boardOptions.appendChild(pickColourBtn);
-	boardOptions.appendChild(guideModal);
+	let colourWheel = document.getElementById('colour-wheel');
+	colourWheel.addEventListener('change', e => {
+		return colourWheel = e.target.value;
+	})
+
+	
+
+
+	const backgroundColourOptions = document.createElement('button');
+	backgroundColourOptions.classList.add('background-colour');
+	backgroundColourOptions.textContent = "Back- ground";
+	
+	backgroundColourOptions.addEventListener('click', () => {
+		container.style.background = document.getElementById('colour-wheel').value;
+		
+	});
+
+	backgroundOptions.appendChild(pickColourBtn);
+	backgroundOptions.appendChild(backgroundColourOptions);
+	backgroundOptions.appendChild(reloadBtn);
+	backgroundOptions.appendChild(guideModal);
+
 		
 createSketchPad(gridSize.value);
 
