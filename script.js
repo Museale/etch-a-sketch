@@ -96,7 +96,7 @@ function gridRemover () {
 
 	const reloadBtn = document.createElement('button');
 		reloadBtn.textContent = "Wipe Board";
-		reloadBtn.classList.add('background-colour');
+		reloadBtn.classList.add('button-options');
 		reloadBtn.addEventListener('click', () => {
 			window.location.reload();
 		});
@@ -104,7 +104,7 @@ function gridRemover () {
 
 	const pickColourBtn = document.createElement('button');
 		pickColourBtn.textContent = 'RGB';
-		pickColourBtn.classList.add('background-colour');
+		pickColourBtn.classList.add('button-options');
 
 		pickColourBtn.addEventListener('click', () => {
 			if (colourBtnValue === 0) {
@@ -118,7 +118,7 @@ function gridRemover () {
 	
 	const guideModal = document.createElement('button');
 		guideModal.textContent ='guide';
-		guideModal.classList.add('background-colour')
+		guideModal.classList.add('button-options')
 		guideModal.addEventListener('click', () => {
 			document.getElementById('pop-up-box').classList.add('active');
 			document.getElementById('overlay').classList.add('active');
@@ -139,7 +139,7 @@ function gridRemover () {
 
 
 	const backgroundColourOptions = document.createElement('button');
-	backgroundColourOptions.classList.add('background-colour');
+	backgroundColourOptions.classList.add('button-options');
 	backgroundColourOptions.textContent = "Back- ground";
 	
 	backgroundColourOptions.addEventListener('click', () => {
