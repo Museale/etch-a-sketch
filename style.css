@@ -56,7 +56,7 @@ body {
 }
 
 .cell {
-    border: 1px dashed rgba(152, 184, 179, 0.418);
+    border: 1px dashed rgba(35, 133, 118, 0.205);
 }
 
 .cell:hover {
