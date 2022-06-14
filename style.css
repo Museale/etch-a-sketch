@@ -39,7 +39,7 @@ body {
 
 #container {
     display: grid;
-    background: rgba(177, 232, 240, 0.767);
+    background: rgba(226, 248, 252, 0.767);
     border: rgb(87, 163, 163) solid 7px;
     width: 766px;
     height: 766px;
@@ -60,12 +60,13 @@ body {
 }
 
 .cell:hover {
-    background-color: rgb(121, 166, 207)
+    background-color: rgba(83, 241, 241, 0.432);
 }
 
 .drawingActive {
     cursor: URL('drawing-bear.png'), pointer;
 }
+
 
 #options {
     display: flex;
