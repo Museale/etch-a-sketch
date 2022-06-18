@@ -3,12 +3,13 @@
     margin: 0;
     padding: 0;
     border: 0;
+    touch-action: none;
    
 }
 
 html {
     background-color: #15b1b1;
- 
+    
 }
 
 body {
@@ -66,7 +67,6 @@ body {
 .drawingActive {
     cursor: URL('drawing-bear.png'), pointer;
 }
-
 
 #options {
     display: flex;
@@ -310,6 +310,7 @@ input[type="color"]::-webkit-color-swatch {
         width: 600px;
         height: 600px;
         margin-left: auto;
+      
       
     }
      
